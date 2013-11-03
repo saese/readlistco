@@ -1,0 +1,37 @@
+.row
+  .col-md-7
+    h1
+      =@topic.title
+    p
+      | by 
+      =@topic.user.name
+    p.text-muted
+      small
+        =@topic.created_at
+    p
+      =@topic.content
+    p  
+      -if current_user?(@topic.user)
+        = link_to "edit", edit_topic_path(@topic)
+        |  | 
+        = link_to "delete", topic_path(@topic), method: :delete, data: { confirm: "You sure?" }
+
+    .dark-line
+    -if current_user?(@topic.user)
+      p = link_to "Create new subtopic", new_topic_subtopic_path(@topic)
+    br
+
+    -@topic.subtopics.each do |subtopic|
+      h4
+        strong =subtopic.title
+      p =subtopic.content
+      -if current_user?(@topic.user)
+        =link_to "edit", edit_topic_subtopic_path(@topic, subtopic) 
+        |  | 
+        =link_to "delete", @subtopic, method: :delete, data: {confirm: "You sure?"}
+      hr
+
+
+  .col-md-offset-1.col-md-4
+    h2= @topic.user.name
+    p= link_to "Go to profile", user_path(@topic.user)

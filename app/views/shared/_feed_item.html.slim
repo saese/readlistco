@@ -1,0 +1,12 @@
+/ h4
+/   =link_to feed_item.user.name, feed_item.user
+
+h2 =link_to feed_item.title, feed_item
+p
+  =feed_item.content
+small.text-muted
+  |Posted 
+  = time_ago_in_words(feed_item.created_at)
+  |  ago
+
+hr

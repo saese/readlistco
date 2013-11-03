@@ -1,0 +1,17 @@
+.col-md-8
+  h1 All Topics
+  hr
+
+  ol
+    =render @topics
+
+  = will_paginate
+
+.col-md-4
+
+-unless signed_in?
+  h1 Readlist.Co
+  h3 Don't be just a curator, be a teacher
+  h5 Turn your bookmarks into a lesson so that others can learn from you
+
+  =link_to "Sign up now", signup_path

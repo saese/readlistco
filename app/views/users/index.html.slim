@@ -1,0 +1,12 @@
+.row
+	.col-md-8
+		h1 All Users
+		hr
+		h4
+		  -@users.each do |user|
+		    = link_to user.name, user
+		    / - if current_user.admin? && !current_user?(user)
+		    /   =link_to "delete", user, method: :delete, data: {confirm: "You sure?"}
+		   	br
+	    	hr
+=will_paginate

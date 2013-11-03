@@ -1,0 +1,10 @@
+h1
+	=current_user.name
+
+= link_to "Profile", current_user 
+|  | 
+= pluralize(current_user.topics.count, "topic")
+hr
+
+
+

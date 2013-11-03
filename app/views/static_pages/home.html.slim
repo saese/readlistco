@@ -1,0 +1,11 @@
+-if signed_in?
+  .row
+    .col-md-7
+      = render "shared/user_info"
+      = render "shared/topic_form"
+    .col-md-offset-1.col-md-4
+      h3 Your Topics
+      .light-line
+      =render "shared/feed"
+-else
+  =link_to "Sign up now", signup_path

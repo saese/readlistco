@@ -1,0 +1,14 @@
+- provide(:title, @user.name)
+h1
+  = @user.name
+
+- if @user.topics.any?
+  h4
+    = @user.topics.count 
+    |  Topics 
+hr
+  ol
+    =render @topics
+
+
+=will_paginate @topics
