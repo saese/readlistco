@@ -14,13 +14,13 @@
       -if current_user?(@topic.user)
         = link_to "edit", edit_topic_path(@topic)
         |  | 
-        = link_to "delete", topic_path(@topic), method: :delete, data: { confirm: "You sure?" }
+        = link_to "delete", @topic, :method => :delete, data: { confirm: "You sure?" }
 
     .dark-line
     -if current_user?(@topic.user)
       p = link_to "Create new subtopic", new_topic_subtopic_path(@topic)
     br
-
+    
     -@topic.subtopics.each do |subtopic|
       h4
         strong =subtopic.title

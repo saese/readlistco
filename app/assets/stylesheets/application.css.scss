@@ -15,10 +15,25 @@
 
 .body{
 font-color: #222222;
+background-color: rgb(246, 246, 246);
 }
+
 .container{
 	max-width:970px;
 	margin: 0 auto;
+}
+
+.post {
+position: relative;
+width: 540px;
+display:block;
+box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 1px;
+background-color: #ffffff;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 4px;
+margin: 0 0 35px 0;
+color: rgba(0, 0, 0, 0.9);
+padding: 10px;
 }
 
 .form-box{
@@ -45,6 +60,33 @@ ul {
 .light-line{
 	border: solid 1px black;
 	display: block;
-		margin: 10px 0 30px 0;
+	margin: 10px 0 30px 0;
 
+}
+
+/*Bootstrap modifications*/
+a {
+color: #9a1f24;
+text-decoration: none;
+	&:hover{
+	color: #660000;
+	}
+}
+
+.navbar-default{
+	background-color: #9a1f24;
+	height: 40px;
+}
+
+
+.navbar-nav > li > a {
+color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar-brand {
+color: rgba(255, 255, 255, 0.95) !important;
+}
+
+h3 a {
+	font-family: 'PT Serif', Georgia, serif;
 }

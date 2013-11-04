@@ -1,13 +1,13 @@
-h3
-	=link_to topic.title, topic_path(topic)
-p
-	=topic.content
-small.text-muted
-	| Posted 
-	= time_ago_in_words(topic.created_at) 
-	|  ago
-br
-/ -if current_user?(topic.user)
-/   = link_to "delete", topic, method: :delete, data: { confirm: "You sure?" }, title: topic.content
+.post
+	h3
+		=link_to topic.title, topic_path(topic)
+	p
+		=topic.content
+	small.text-muted
+		| Posted 
+		= time_ago_in_words(topic.created_at) 
+		|  ago
+	br
+	/ -if current_user?(topic.user)
+	/   = link_to "delete", topic, method: :delete, data: { confirm: "You sure?" }, title: topic.content
 
-hr
