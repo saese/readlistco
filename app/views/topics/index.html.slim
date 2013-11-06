@@ -1,19 +1,42 @@
-.col-md-8
-  h1 All Topics
-  .light-line
-  .clearfix
+.row
+  .col-md-7
+    h1 All Topics
+    br
+
+    =render @topics
+
+    = will_paginate
 
   
-	ol
-	  =render @topics
+    
 
-  = will_paginate
+  -if signed_in?
+    .col-md-offset-2.col-md-3
+      
+      .categories 
+        
+        ul
+          h4 Categories
+          .light-line
+          li.text-info Entrepreneurship
+          hr
+          li.text-info Business
+          hr
+          li.text-info Technology
+          hr
+          li.text-info Psychology
+          hr
+          li.text-info Finance
+          br
+          .light-line
 
-.col-md-4
+  -else
+    .col-md-offset-1.col-md-4
+      .form-box
+        .dark-line
+        h2.text-danger Don't be just a curator, be a teacher.
+        .light-line
+        h4 Turn your bookmarks into a lesson so that others can learn from you.
 
--unless signed_in?
-  h1 Readlist.Co
-  h3 Don't be just a curator, be a teacher
-  h5 Turn your bookmarks into a lesson so that others can learn from you
-
-  =link_to "Sign up now", signup_path
+        =link_to "Sign up now", signup_path
+        .light-line

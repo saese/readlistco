@@ -2,12 +2,13 @@
   .col-md-7
     h1
       =@topic.title
-    p
-      | by 
-      =@topic.user.name
+    / p
+    /   | by 
+    /   =@topic.user.name
     p.text-muted
       small
         =@topic.created_at
+    br
     p
       =@topic.content
     p  
@@ -22,14 +23,15 @@
     br
     
     -@topic.subtopics.each do |subtopic|
-      h4
-        strong =subtopic.title
-      p =subtopic.content
-      -if current_user?(@topic.user)
-        =link_to "edit", edit_topic_subtopic_path(@topic, subtopic) 
-        |  | 
-        =link_to "delete", @subtopic, method: :delete, data: {confirm: "You sure?"}
-      hr
+      .post
+        h4
+          strong 
+            =link_to subtopic.title, topic_subtopic_path(@topic, subtopic) 
+        p =subtopic.content
+        -if current_user?(@topic.user)
+          =link_to "edit", edit_topic_subtopic_path(@topic, subtopic) 
+          |  | 
+          =link_to "delete", @subtopic, method: :delete, data: {confirm: "You sure?"}
 
 
   .col-md-offset-1.col-md-4

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131027112410) do
+ActiveRecord::Schema.define(version: 20131105111344) do
 
   create_table "subtopics", force: true do |t|
     t.string   "title"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20131027112410) do
   end
 
   add_index "subtopics", ["topic_id"], name: "index_subtopics_on_topic_id"
+
+  create_table "tlinks", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "link"
+    t.integer  "subtopic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tlinks", ["subtopic_id"], name: "index_tlinks_on_subtopic_id"
 
   create_table "topics", force: true do |t|
     t.string   "title"

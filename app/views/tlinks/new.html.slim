@@ -1,0 +1,9 @@
+=form_for(@tlink, :url => topic_subtopic_tlinks_path) do |f|
+	/ = render "shared/error_messages", object: f.object
+	=f.text_field :title, placeholder: "Title", class:"form-control input"
+	br
+	=f.text_area :content, placeholder: "Your content here...", class:"form-control input post-form"
+	br
+	=f.text_area :link, placeholder: "Your link here...", class:"form-control input post-form"
+	br
+	=f.submit "Post", class:"btn btn-primary"

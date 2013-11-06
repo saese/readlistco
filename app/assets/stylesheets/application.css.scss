@@ -13,19 +13,30 @@
  *= require_tree .
  */
 
+$black: #444444;
+
 .body{
-font-color: #222222;
+color: $black;
 background-color: rgb(246, 246, 246);
+font-size: 16px;
 }
 
+h1{
+	color: $black;
+}
+
+
 .container{
-	max-width:970px;
+	width:1080px;
 	margin: 0 auto;
 }
 
+#brand{
+	font-size: 24px;
+}
 .post {
 position: relative;
-width: 540px;
+max-width: 600px;
 display:block;
 box-shadow: rgba(0, 0, 0, 0.05) 1px 1px 1px;
 background-color: #ffffff;
@@ -33,13 +44,32 @@ border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 4px;
 margin: 0 0 35px 0;
 color: rgba(0, 0, 0, 0.9);
+font-size: 15px;
 padding: 10px;
 }
 
 .form-box{
-	background:black;
-	opacity: .7;
+	margin-top: 200px;
 	max-width: 300px;
+}
+
+.categories{
+	margin-top: 100px;
+	max-width: 300px;
+	list-style: none;
+	padding-right:40px;
+	hr{
+		margin:0 5px;
+	}
+
+}
+
+.index{
+	hr{
+		margin: 10px 0;
+		padding-right:40px;
+	}
+	
 }
 
 .post-form{
@@ -90,3 +120,4 @@ color: rgba(255, 255, 255, 0.95) !important;
 h3 a {
 	font-family: 'PT Serif', Georgia, serif;
 }
+

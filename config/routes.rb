@@ -1,12 +1,19 @@
 Quoota::Application.routes.draw do
+  get "tlinks/new"
+  get "tlinks/edit"
+  get "tlinks/destroy"
   # root to: "static_pages#home"  
   root to: "topics#index"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   
   resources :topics do
-    resources :subtopics
+    resources :subtopics do
+      resources :tlinks
+    end
   end
+
+
 
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'

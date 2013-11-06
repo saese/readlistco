@@ -1,0 +1,23 @@
+.row
+	.col-md-7
+
+
+		h3=@subtopic.title
+		p=@subtopic.content
+
+		-@subtopic.tlinks.each do |tlink|
+			.post
+				h3=link_to tlink.title, tlink.link
+				p=tlink.content
+				p=tlink.link
+
+	.col-md-offset-1.col-md-4
+
+		ul
+			h3
+				strong Index
+			.index
+				-@subtopic.topic.subtopics.each do |subtopic| 
+					li
+						=link_to subtopic.title, topic_subtopic_path(@topic, subtopic), class:"text-info"
+					hr
