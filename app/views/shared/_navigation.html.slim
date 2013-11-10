@@ -21,20 +21,23 @@ nav.navbar.navbar-default.navbar-static-top role="navigation"
           a href="/" View all lessons
         li 
           -if signed_in?
-            a href="/static_pages/home" My page
+            a href="/static_pages/home" Create a new lesson
 
         li.dropdown
-          a.dropdown-toggle data-toggle="dropdown" href="#"
-            | rajeevamatya
-            b.caret
-          ul.dropdown-menu 
-            li
-              =link_to "Sign out", signout_path
-        .clearfix
+          -if signed_in?
+            a.dropdown-toggle data-toggle="dropdown" href="#"
+              | #{current_user.name}
+              b.caret
+            ul.dropdown-menu 
+              li
+                a href="/static_pages/home" My page
+              li
+                =link_to "Sign out", signout_path, method: :delete
+          -else 
+            li.dropdown
+              =link_to "Sign in", signin_path
+          .clearfix
 
         <script type="text/javascript">mixpanel.track_links("#navlinks a", "click nav link", {referrer: document.referrer});</script>
-      / -else
-      /   li.dropdown
-      /     =link_to "Sign in", signin_path
 
 

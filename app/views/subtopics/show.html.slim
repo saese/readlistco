@@ -5,11 +5,19 @@
 		h3=@subtopic.title
 		p=@subtopic.content
 
+		p=link_to "create new", new_topic_subtopic_tlink_path(@subtopic.topic, @subtopic)
+
 		-@subtopic.tlinks.each do |tlink|
 			.post
-				h3=link_to tlink.title, tlink.link
+				h3=link_to tlink.title, "#{tlink.link}", :target => "_blank"
 				p=tlink.content
-				p=tlink.link
+				.action
+					-if current_user?(@topic.user)
+						=link_to "edit", edit_topic_subtopic_tlink_path(@topic, @subtopic, tlink)
+						|  | 
+						=link_to "delete", topic_subtopic_tlink_path(@topic, @subtopic, tlink), method: :delete
+
+
 
 	.col-md-offset-1.col-md-4
 

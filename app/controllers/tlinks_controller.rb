@@ -12,7 +12,7 @@ class TlinksController < ApplicationController
 
   def create
   	@subtopic = Subtopic.find(params[:subtopic_id])
-  	@tlink = @subtopic.tlinks.create(params[:tlink].permit(:title, :content, :link))
+  	@tlink = @subtopic.tlinks.create(tlink_params)
   	if @tlink.save
   		redirect_to topic_subtopic_path(@subtopic.topic, @subtopic)
   	else
@@ -22,22 +22,35 @@ class TlinksController < ApplicationController
 
 
   def edit
-  	@subtopic = Tlink.subtopic.find(:subtopic_id)
-  	@tlink = @subtopic.find(param[:id])
+  	@subtopic = Subtopic.find(params[:subtopic_id])
+  	@tlink = @subtopic.tlinks.find(params[:id])
+
   end
 
   def update
-		@subtopic = Tlink.subtopic.find(:subtopic_id)
-		@tlink = @subtopic.find(param[:id])
-		@tlink.update_attributes(params[:tlink].permit(:title, :content))
+    @subtopic = Subtopic.find(params[:subtopic_id])
+    @tlink = @subtopic.tlinks.find(params[:id])
+		@tlink.update_attributes(tlink_params)
 		if @tlink.save
-			redirect_to @subtopic
+			redirect_to topic_subtopic_path(@subtopic.topic, @subtopic)
 		else
+      flash[:notice] = "Could not be updated"
 			render "edit"
 		end
   end
 
 
   def destroy
+    @subtopic = Subtopic.find(params[:subtopic_id])
+    @tlink = @subtopic.tlinks.find(params[:id])
+    @tlink.destroy
+    redirect_to topic_subtopic_path(@subtopic.topic, @subtopic)
   end
+
+  private
+
+    def tlink_params
+      params.require(:tlink).permit(:title, :content, :link)
+    end
+  
 end

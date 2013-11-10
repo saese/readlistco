@@ -31,7 +31,7 @@
         -if current_user?(@topic.user)
           =link_to "edit", edit_topic_subtopic_path(@topic, subtopic) 
           |  | 
-          =link_to "delete", @subtopic, method: :delete, data: {confirm: "You sure?"}
+          =link_to "delete", topic_subtopic_path(@topic, subtopic), method: :delete, data: {confirm: "You sure?"}
 
 
   .col-md-offset-1.col-md-4

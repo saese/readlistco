@@ -41,7 +41,7 @@ class SubtopicsController < ApplicationController
 		@topic = Topic.find(params[:topic_id])
 		@subtopic = @topic.subtopics.find(params[:id])
 		@subtopic.destroy
-		redirect_to root_url
+		redirect_to @topic
 	end
 
 end

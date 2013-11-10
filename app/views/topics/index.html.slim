@@ -2,10 +2,10 @@
   .col-md-7
     h1 All Topics
     br
+    - unless @topics.empty?
+      =render @topics
 
-    =render @topics
-
-    = will_paginate
+      = will_paginate
 
   
     
@@ -37,6 +37,5 @@
         h2.text-danger Don't be just a curator, be a teacher.
         .light-line
         h4 Turn your bookmarks into a lesson so that others can learn from you.
-
-        =link_to "Sign up now", signup_path
+        =link_to "Sign up now create your own lessons", signup_path,class: "btn btn-primary"
         .light-line

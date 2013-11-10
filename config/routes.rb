@@ -20,6 +20,7 @@ Quoota::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
   match 'static_pages/home', to: 'static_pages#home', via: 'get'
+    match 'static_pages/pure', to: 'static_pages#pure', via: 'get'
 
 
 
